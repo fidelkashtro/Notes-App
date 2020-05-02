@@ -7,10 +7,11 @@
                 <li class="active"> 
                     <a href="#"><span> Creates App </span></a>
                 </li>
+                
+                <li *ngFor="let i of notesList"> 
+                    <a [routerLink]="'/note/'+i.id"><span> {{i.discription}} </span></a>
+                </li>
 
-               
-                
-                
 
             </ul>
         </div>

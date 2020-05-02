@@ -25,7 +25,7 @@
 <div class="row">
 <div class="col-lg-3 col-md-4">
   
-  <ul class="inbox-menu">
+  <!-- <ul class="inbox-menu">
     <li class="active">
       <a href="#"> Create notes App </a>
       <span> 3:20 PM </span>
@@ -46,13 +46,14 @@
       <a href="#"> Create notes App </a>
       <span> 3:20 PM </span>
     </li>
-  </ul>
+  </ul> -->
 </div>
 
 <div class="col-lg-9 col-md-8">
   <div class="card">
     <div class="card-body">
-      <div class="email-header">
+      <router-outlet> </router-outlet>
+      <!-- <div class="email-header">
         <div class="row">
           <div class="actions">
             <a routerLink="/addUser" class="btn btn-sm bg-success-light mr-2">
@@ -71,29 +72,17 @@
             <thead>
               
             </thead>
-            <tbody>
+            <tbody *ngFor="let i of notesList">
               <tr class="unread clickable-row" data-href="mail-view.html">
                
                 
-                <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
-                <td class="mail-date">13:14</td>
-              </tr>
-              <tr class="unread clickable-row" data-href="mail-view.html">
-               
-                
-                <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
-                <td class="mail-date">13:14</td>
-              </tr>
-              <tr class="unread clickable-row" data-href="mail-view.html">
-               
-                
-                <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
-                <td class="mail-date">13:14</td>
+                <td class="subject">{{i.discription}}</td>
+                <td class="mail-date">{{i.created}}</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -103,5 +92,5 @@
 </div>
 
   <!-- /Page Wrapper -->
-  <router-outlet> </router-outlet>
+  
 </div>
