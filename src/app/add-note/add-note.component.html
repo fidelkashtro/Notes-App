@@ -1,0 +1,7 @@
+<form #form="ngForm" (ngSubmit)=submit(form.value)>
+    <input type="text" [(ngModel)]="name" name="name"><br>
+    <input type="text" [(ngModel)]="title" name="title"><br>
+    <input type="text" [(ngModel)]="discription" name="discription"><br>
+    <button type="submit" [disabled]="form.invalid">Save</button>
+    <!-- <pre><b>Angular Form : </b>{{form.value |json}}</pre> -->
+</form>
