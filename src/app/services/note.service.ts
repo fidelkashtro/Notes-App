@@ -11,10 +11,13 @@ export class NoteService {
     getNotes() {
         return this.httpClient.get(this.baseUrl);
     }
+    getNoteById(id) {
+        return this.httpClient.get(`${this.baseUrl}/${id}`);
+    }
 
 
-    addNotes(employee) {
-        return this.httpClient.post(this.baseUrl, employee, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
+    addNotes(data) {
+        return this.httpClient.post(this.baseUrl, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
     }
 
 

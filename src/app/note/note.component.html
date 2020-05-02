@@ -1,10 +1,10 @@
   <div class="email-header">
-        <div class="row">
+        <div class="row" *ngIf="noteDetails">
           <div class="actions">
             <a routerLink="/addUser" class="btn btn-sm bg-success-light mr-2">
                 <i class="fe fe-pencil"></i> Edit
             </a>
-            <a href="#" class="btn btn-sm bg-danger-light">
+            <a (click)="deleteNote(noteDetails.id)" class="btn btn-sm bg-danger-light">
                 <i class="fe fe-trash"></i> Delete
             </a>
         </div>
@@ -15,14 +15,18 @@
         <div class="table-responsive">
           <table class="table table-inbox table-hover">
             <thead>
+                <tr>
+                    <th>Note Name</th>
+                    <th>Note Discription</th>
+                    <th>Note Creation Date</th>
+                </tr>
               
             </thead>
-            <tbody *ngFor="let i of notesList">
+            <tbody>
               <tr class="unread clickable-row" data-href="mail-view.html">
-               
-                
-                <td class="subject">{{i.discription}}</td>
-                <td class="mail-date">{{i.created}}</td>
+                <td class="subject">{{noteDetails?.name}}</td>
+                <td class="subject">{{noteDetails?.discription}}</td>
+                <td class="mail-date">{{noteDetails?.created}}</td>
               </tr>
             </tbody>
           </table>

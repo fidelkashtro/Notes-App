@@ -1,13 +1,6 @@
 {
   "notes": [
     {
-      "id": 1,
-      "name": "Meeting",
-      "title": "Meeting Title",
-      "discription": "Meeting Discription",
-      "created": "Sat May 02 2020 10:36:00 GMT+0530 (India Standard Time)"
-    },
-    {
       "id": 2,
       "name": "Conference",
       "title": "Conference Title",

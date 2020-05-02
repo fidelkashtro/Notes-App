@@ -28,7 +28,7 @@
             ],
             "scripts": [
              
-              "src/assets/js/jquery-3.2.1.min.s",
+              "src/assets/js/jquery-3.2.1.min.js",
                  "src/assets/js/popper.min.js",
                  "src/assets/js/bootstrap.min.js",
                "src/assets/js/jquery.slimscroll.min.js",
