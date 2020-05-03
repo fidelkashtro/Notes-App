@@ -10,16 +10,19 @@ export class NoteService {
 
     getNotes() {
         return this.httpClient.get(this.baseUrl);
-    }
+    } 
+
     getNoteById(id) {
         return this.httpClient.get(`${this.baseUrl}/${id}`);
     }
-
 
     addNotes(data) {
         return this.httpClient.post(this.baseUrl, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
     }
 
+    updateNote(id, data) {
+        return this.httpClient.patch(`${this.baseUrl}/${id}`, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
+    }
 
     deleteNote(id: number){
         return this.httpClient.delete(`${this.baseUrl}/${id}`);

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {NoteService} from './services/note.service'
-import { Router, NavigationEnd ,Event} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,26 +7,72 @@ import { Router, NavigationEnd ,Event} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'note-app';
-  notesList
-  constructor(private noteService:NoteService,private _router:Router){
-    // this._router.events.subscribe((routerEvent: Event) => {
-
-
-    //   if (routerEvent instanceof NavigationEnd) {
-    //     this.getNotesList();
-    //   }
-    // });
-  }
+  disabled = true;
+  note = null;
+  notesList;
+  created;
+  currentNote = null;
+  searchTerm;
+  constructor(private noteService:NoteService){}
 
 
   ngOnInit(){
-   
+   this.getNotesList();
   }
 
   getNotesList(){
     this.noteService.getNotes().subscribe(res=>{
       this.notesList = res;
     })
+  }
+
+
+
+  create(){
+   this.disabled = false;
+   this.created = new Date()
+    if(this.currentNote){
+        let data = {
+          name : this.note,
+          created: new Date()
+        }
+        this.noteService.updateNote(this.currentNote.id, data).subscribe(res=>{
+          this.getNotesList();
+          this.disabled = true;
+          this.note = null;
+          this.currentNote = null;
+        });
+    }else{
+      if(this.note){
+        let data = {
+          name : this.note,
+          created: new Date()
+        }
+        this.noteService.addNotes(data).subscribe(res=>{
+          this.getNotesList();
+          this.disabled = true;
+          this.note = null;
+        });
+      }
+    }
+  }
+
+  editNote(note){
+    this.currentNote = note;
+    this.disabled = false;
+    this.note = note.name;
+    this.created = note.created;
+  }
+
+  delete(){
+    if(this.note && this.currentNote.id){
+      this.noteService.deleteNote(this.currentNote.id).subscribe(res=>{
+        this.getNotesList();
+        this.disabled = true;
+        this.note = null;
+        this.currentNote = null;
+      })
+    }
   }
 
 }

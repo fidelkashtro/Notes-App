@@ -7,15 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteComponent } from './note/note.component';
-import { AddNoteComponent } from './add-note/add-note.component';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidebarComponent,
     NoteComponent,
-    AddNoteComponent
+    SearchPipe
   ],
   imports: [
     BrowserModule,
