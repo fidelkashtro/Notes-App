@@ -5,3 +5,10 @@
 .btn-d{
     margin-left: 10px;
 }
+
+.border-b {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.text-info{
+    font-size: 12px;
+}
